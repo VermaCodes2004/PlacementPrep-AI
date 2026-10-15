@@ -1,0 +1,7 @@
+.env
+.venv/
+venv/
+__pycache__/
+*.pyc
+placementprep_history.db
+.streamlit/secrets.toml

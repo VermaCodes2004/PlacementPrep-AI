@@ -1,0 +1,6 @@
+
+streamlit==1.65.0
+google-genai
+python-dotenv
+pymupdf
+reportlab
