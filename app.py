@@ -668,8 +668,8 @@ def clear_current_chat():
 # --------------------------------------------------
 
 with st.sidebar:
-    st.header("PlacementPrep AI")
-    st.caption("Your AI-powered placement companion.")
+    st.markdown("## ✦ PlacementPrep <span style='color:#74f0c0'>AI</span>", unsafe_allow_html=True)
+    st.caption("YOUR PERSONAL PLACEMENT WORKSPACE")
 
     if st.button("➕ New Chat", use_container_width=True, type="primary"):
         start_new_chat()
@@ -731,9 +731,16 @@ with st.sidebar:
 # 7. PAGE CONTENT AND API CONFIGURATION
 # --------------------------------------------------
 
-st.title("PlacementPrep AI")
-st.caption(
-    "Your AI assistant for placements, academic learning, and interview preparation."
+st.markdown(
+    """
+    <section class="pp-hero">
+      <div class="pp-hero-top"><span class="pp-orbit">✦</span><span class="pp-eyebrow">YOUR CAREER WORKSPACE</span><span class="pp-live"><span></span> AI ASSISTANT READY</span></div>
+      <h1>Placement<span>Prep</span><sup>AI</sup></h1>
+      <p class="pp-subtitle">One workspace. Three ways to get placement-ready.</p>
+      <div class="pp-pill-row"><span>◈ Learn with AI</span><span>▤ Strengthen your resume</span><span>⌁ Practice under pressure</span></div>
+    </section>
+    """,
+    unsafe_allow_html=True,
 )
 
 if not API_KEY:
@@ -760,33 +767,92 @@ except Exception as error:
 st.markdown(
     """
     <style>
-    /* Keep the tab navigation fixed at the top of the viewport */
-    div[data-testid="stTabs"] > div[data-baseweb="tab-list"] {
-        position: fixed !important;
-        top: 0 !important;
-        left: 322px !important;
-        width: calc(100% - 322px) !important;
-        z-index: 99999 !important;
-        background: #0e1117 !important;
-        padding: 10px 16px !important;
-        box-sizing: border-box !important;
+    :root { --pp-bg:#0b1020; --pp-panel:#121a2d; --pp-line:#25334c; --pp-mint:#74f0c0; --pp-lilac:#b9a7ff; }
+    .stApp { background: radial-gradient(ellipse at 80% 0%, rgba(76,91,160,.18), transparent 36%), #0b1020; }
+    [data-testid="stHeader"] { background: rgba(11,16,32,.88); }
+    [data-testid="stSidebar"] { background: linear-gradient(180deg,#10182a 0%,#0c1221 100%); border-right:1px solid #25334c; }
+    [data-testid="stSidebar"] > div { padding-top: 1.2rem; }
+    [data-testid="stSidebar"] h1, [data-testid="stSidebar"] h2, [data-testid="stSidebar"] h3 { color:#f4f7ff !important; }
+    [data-testid="stSidebar"] [data-testid="stMarkdownContainer"] p { color:#c1cce0; }
+    /* Sidebar: improve contrast and give controls a deliberate visual hierarchy */
+    [data-testid="stSidebar"] { color:#eaf0ff; }
+    [data-testid="stSidebar"] [data-testid="stCaptionContainer"] { color:#b8c5dc !important; }
+    [data-testid="stSidebar"] .stButton > button {
+        min-height:44px; border-radius:11px; background:#172238 !important;
+        border:1px solid #354763 !important; color:#eaf1ff !important;
+        box-shadow:none; font-weight:650; transition:all .16s ease;
+    }
+    [data-testid="stSidebar"] .stButton > button p,
+    [data-testid="stSidebar"] .stButton > button span,
+    [data-testid="stSidebar"] .stButton > button div { color:inherit !important; }
+    [data-testid="stSidebar"] .stButton > button:hover {
+        background:#202f48 !important; border-color:#74f0c0 !important;
+        color:#ffffff !important; transform:translateY(-1px);
+    }
+    /* High-contrast mint New Chat button */
+    /* Force readable, bold New Chat text */
+    [data-testid="stSidebar"] button[data-testid="stBaseButton-primary"] {
+        background: #74f0c0 !important;
+        color: #06251c !important;
+        font-weight: 900 !important;
+        font-size: 18px !important;
+        letter-spacing: 0.3px !important;
+        opacity: 1 !important;
     }
 
-    /* Keep the tab navigation visible above the content */
-    div[data-testid="stTabs"] {
-        overflow: visible !important;
+    [data-testid="stSidebar"] button[data-testid="stBaseButton-primary"] * {
+        color: #06251c !important;
+        font-weight: 900 !important;
+        opacity: 1 !important;
     }
-
-    @media (max-width: 768px) {
-        div[data-testid="stTabs"] > div[data-baseweb="tab-list"] {
-            left: 0 !important;
-            width: 100% !important;
-        }
+    [data-testid="stSidebar"] .stButton > button[kind="primary"] p,
+    [data-testid="stSidebar"] .stButton > button[kind="primary"] span,
+    [data-testid="stSidebar"] .stButton > button[kind="primary"] div,
+    [data-testid="stSidebar"] .stButton > button[data-testid="stBaseButton-primary"] p,
+    [data-testid="stSidebar"] .stButton > button[data-testid="stBaseButton-primary"] span,
+    [data-testid="stSidebar"] .stButton > button[data-testid="stBaseButton-primary"] div { color:#08251e !important; }
+    [data-testid="stSidebar"] .stButton > button[kind="primary"]:hover,
+    [data-testid="stSidebar"] .stButton > button[data-testid="stBaseButton-primary"]:hover {
+        background:#b4ffe5 !important; border-color:#b4ffe5 !important;
+        color:#061d17 !important; box-shadow:0 7px 22px rgba(116,240,192,.22);
     }
+    [data-testid="stSidebar"] [data-testid="stExpander"] summary,
+    [data-testid="stSidebar"] [data-testid="stExpander"] summary p { color:#e4ecfb !important; }
+    [data-testid="stSidebar"] hr { border-color:#34425a !important; }
+    .pp-hero { position:relative; overflow:hidden; padding:28px 32px 26px; margin:6px 0 22px; border:1px solid #293853; border-radius:22px; background:linear-gradient(115deg,rgba(25,39,66,.98),rgba(19,26,48,.94) 60%,rgba(38,31,72,.92)); box-shadow:0 18px 50px rgba(0,0,0,.20); }
+    .pp-hero:after { content:""; position:absolute; width:240px; height:240px; border:1px solid rgba(116,240,192,.16); border-radius:50%; right:-70px; top:-105px; box-shadow:0 0 0 28px rgba(116,240,192,.025),0 0 0 58px rgba(185,167,255,.035); }
+    .pp-hero-top { display:flex; align-items:center; gap:10px; flex-wrap:wrap; }
+    .pp-orbit { color:#74f0c0; font-size:20px; }
+    .pp-eyebrow { color:#a9bad5; font-size:11px; font-weight:800; letter-spacing:2px; }
+    .pp-live { margin-left:auto; color:#b9f8df; background:rgba(116,240,192,.08); border:1px solid rgba(116,240,192,.22); border-radius:30px; padding:6px 10px; font-size:10px; letter-spacing:.7px; }
+    .pp-live span { display:inline-block; width:6px; height:6px; margin-right:6px; border-radius:50%; background:#74f0c0; box-shadow:0 0 9px #74f0c0; }
+    .pp-hero h1 { margin:15px 0 2px; color:#f4f6ff; font-size:clamp(36px,5vw,56px); line-height:1.05; font-weight:850; letter-spacing:-2px; }
+    .pp-hero h1 span { color:#74f0c0; }
+    .pp-hero h1 sup { font-size:13px; vertical-align:top; letter-spacing:1px; color:#b9a7ff; margin-left:8px; }
+    .pp-subtitle { margin:10px 0 18px; color:#bdc8dd; font-size:16px; }
+    .pp-pill-row { display:flex; flex-wrap:wrap; gap:8px; }
+    .pp-pill-row span { border:1px solid #35445e; color:#dce5f8; background:rgba(255,255,255,.035); border-radius:8px; padding:7px 11px; font-size:12px; }
+    div[data-testid="stTabs"] > div[data-baseweb="tab-list"] { gap:8px; border-bottom:1px solid #293853; background:transparent; }
+    div[data-testid="stTabs"] button[data-baseweb="tab"] { height:48px; padding:0 18px; border-radius:10px 10px 0 0; color:#aab7ce; font-weight:650; }
+    div[data-testid="stTabs"] button[aria-selected="true"] { color:#74f0c0 !important; background:rgba(116,240,192,.07); border-bottom:2px solid #74f0c0; }
+    div[data-testid="stTabs"] [data-baseweb="tab-highlight"] { background:#74f0c0; }
+    [data-testid="stChatMessage"] { border:1px solid #27354d; border-radius:15px; background:rgba(20,29,49,.72); padding:14px 16px; }
+    [data-testid="stChatInput"] { border:1px solid #394964; border-radius:16px; background:#111a2c; }
+    [data-testid="stChatInput"] textarea { color:#eef3ff; }
+    [data-testid="stFileUploader"] section { border:1px dashed #465879; border-radius:14px; background:rgba(21,31,52,.45); }
+    [data-testid="stMetric"] { background:linear-gradient(135deg,#17243a,#131b30); border:1px solid #2a3b57; padding:16px; border-radius:14px; }
+    div[data-testid="stExpander"] { border:1px solid #293853; border-radius:12px; background:rgba(18,26,45,.45); }
+    .stButton > button, .stDownloadButton > button { border-radius:10px; font-weight:650; border:1px solid #34445f; transition:all .15s ease; }
+    .stButton > button[kind="primary"], .stDownloadButton > button[kind="primary"] { background:linear-gradient(100deg,#74f0c0,#9df4d5); color:#0b1720; border:0; }
+    .stButton > button:hover, .stDownloadButton > button:hover { border-color:#74f0c0; transform:translateY(-1px); }
+    [data-testid="stTextInput"] input, [data-testid="stTextArea"] textarea, [data-baseweb="select"] > div { border-radius:10px; }
+    hr { border-color:#293853; }
+    @media (max-width: 700px) { .pp-hero { padding:22px 18px; } .pp-live { margin-left:0; } .pp-hero h1 { letter-spacing:-1px; } div[data-testid="stTabs"] button[data-baseweb="tab"] { padding:0 9px; font-size:12px; } }
     </style>
     """,
     unsafe_allow_html=True,
 )
+
 
 tab_chat, tab_resume, tab_quiz = st.tabs(
     ["AI Chat", "Resume Analyzer", "Quiz & Assessment"]
@@ -797,6 +863,8 @@ tab_chat, tab_resume, tab_quiz = st.tabs(
 # --------------------------------------------------
 
 with tab_chat:
+    st.markdown("### ◆ Career Coach")
+    st.caption("Ask a technical question, work through a concept, or attach a placement-related question image.")
     try:
         if (
             st.session_state.chat is None
@@ -998,7 +1066,8 @@ technical concepts, aptitude, coding practice, and interview skills.
 # --------------------------------------------------
 
 with tab_resume:
-    st.subheader("Resume Analyzer")
+    st.markdown("### ◫ Resume Intelligence")
+    st.caption("Turn your resume into a role-focused action plan — with a downloadable report.")
     st.write(
         "Upload your resume PDF to get a role-focused review, estimated match score, "
         "skills gap analysis, improvement suggestions, and interview questions."
@@ -1107,7 +1176,8 @@ with tab_resume:
 # --------------------------------------------------
 
 with tab_quiz:
-    st.subheader("Interactive Quiz & Assessment")
+    st.markdown("### ⌁ Placement Arena")
+    st.caption("Build speed and accuracy with AI-generated questions and step-by-step feedback.")
     st.write(
         "Practice placement subjects with AI-generated questions, "
         "instant scoring, and explanations."
