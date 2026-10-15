@@ -863,8 +863,8 @@ tab_chat, tab_resume, tab_quiz = st.tabs(
 # --------------------------------------------------
 
 with tab_chat:
-    st.markdown("### ◆ Career Coach")
-    st.caption("Ask a technical question, work through a concept, or attach a placement-related question image.")
+    # st.markdown("### ◆ Career Coach")
+    # st.caption("Ask a technical question, work through a concept, or attach a placement-related question image.")
     try:
         if (
             st.session_state.chat is None
