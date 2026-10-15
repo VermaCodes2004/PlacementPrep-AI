@@ -138,8 +138,3 @@ Additional files or folders may exist depending on your implementation.
     the exact error message.
 -   **Gemini errors:** Verify that your API key is valid and that the
     configured model is available to your account.
-
-## License
-
-No license has been specified yet. Add a license before allowing others
-to reuse or distribute this project.
